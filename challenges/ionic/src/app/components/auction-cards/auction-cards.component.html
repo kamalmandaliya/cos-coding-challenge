@@ -1,0 +1,98 @@
+<ion-row>
+  <ng-container *ngIf="!isLoading">
+    <ion-col size="12" size-md="6" offsetMd="3" size-lg="4" offsetLg="4" class="ion-no-padding"
+      *ngFor="let auction of auctions; trackBy: trackByPost">
+      <ion-card class="auction-list-card">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img [src]="auction.avatar" />
+          </ion-avatar>
+          <ion-label>
+            {{ auction.firstName }} {{ auction.lastName }}
+            <p>two minutes ago</p>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button color="medium">
+              <ion-icon slot="icon-only" md="ellipsis-vertical-outline" ios="ellipsis-horizontal-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+
+        <img [src]="auction.image" />
+
+        <ion-card-content class="auction-list-content">
+          {{ auction.content }}
+        </ion-card-content>
+
+        <ion-item lines="none" class="ion-no-padding" style="margin-left: 10px">
+          <ion-buttons slot="start">
+            <ion-button color="medium">
+              <ion-icon slot="start" name="heart-outline"></ion-icon>
+              <small>{{ auction.likes }}</small>
+            </ion-button>
+            <ion-button color="medium">
+              <ion-icon slot="start" name="chatbox-outline"></ion-icon>
+              <small>{{ auction.comments }}</small>
+            </ion-button>
+            <ion-button color="medium">
+              <ion-icon slot="start" name="return-up-forward-outline"></ion-icon>
+              <small>{{ auction.shared }}</small>
+            </ion-button>
+          </ion-buttons>
+
+          <ion-buttons slot="end">
+            <ion-button color="medium">
+              <ion-icon size="small" slot="start" name="eye-outline"></ion-icon>
+              <small>{{ auction.views }}</small>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ng-container>
+
+  <ng-container *ngIf="isLoading">
+    <ion-col size="12" size-md="6" offsetMd="3" size-lg="4" offsetLg="4" class="ion-no-padding"
+      *ngFor="let item of [1, 2, 3, 4]">
+      <ion-card class="auction-list-card">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <ion-skeleton-text style="width: 100%; height: 100%; border-radius: 50%"></ion-skeleton-text>
+          </ion-avatar>
+          <ion-label>
+            <ion-skeleton-text style="width: 50%"></ion-skeleton-text>
+            <p>
+              <ion-skeleton-text style="width: 100%"></ion-skeleton-text>
+            </p>
+          </ion-label>
+        </ion-item>
+
+        <ion-skeleton-text style="width: 100%; height: 200px"></ion-skeleton-text>
+
+        <ion-card-content class="auction-list-content">
+          <ion-skeleton-text style="width: 100%; height: 50px"></ion-skeleton-text>
+        </ion-card-content>
+
+        <ion-item lines="none" class="ion-no-padding" style="margin-left: 10px">
+          <ion-buttons slot="start">
+            <ion-button color="medium">
+              <ion-skeleton-text style="width: 32px; height: 32px; border-radius: 50%"></ion-skeleton-text>
+            </ion-button>
+            <ion-button color="medium">
+              <ion-skeleton-text style="width: 32px; height: 32px; border-radius: 50%"></ion-skeleton-text>
+            </ion-button>
+            <ion-button color="medium">
+              <ion-skeleton-text style="width: 32px; height: 32px; border-radius: 50%"></ion-skeleton-text>
+            </ion-button>
+          </ion-buttons>
+
+          <ion-buttons slot="end">
+            <ion-button color="medium">
+              <ion-skeleton-text style="width: 32px; height: 32px; border-radius: 50%"></ion-skeleton-text>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ng-container>
+</ion-row>

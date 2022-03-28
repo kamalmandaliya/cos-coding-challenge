@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{'bottomTabs.main' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="50" pullMax="100" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <app-auction-cards [auctions]="(auctions$ | async)" [isLoading]="auctionsIsLoading$ | async"></app-auction-cards>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadDataAuctionsPagination($event)">
+    <ion-infinite-scroll-content loadingSpinner="lines"> </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

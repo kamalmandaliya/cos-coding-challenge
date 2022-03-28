@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <!-- <ion-title class="ion-text-center" *ngIf="!(userLoadingStates$ | async).isLoading">
+      @{{(user$ | async).email}}
+    </ion-title> -->
+    <ion-title>
+      {{'bottomTabs.profile' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="[ '/auth', 'login' ]" routerDirection="root">
+        <ion-icon color="danger" slot="icon-only" name="power-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" pullFactor="0.5" pullMin="50" pullMax="100" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list lines="none" *ngIf="!(userLoadingStates$ | async).isLoading">
+    <ion-item lines="none" *ngIf="user$ | async as user">
+      <ion-avatar slot="start" style="width: 72px; height: 72px">
+        <img [src]="user.avatar" />
+      </ion-avatar>
+      <ion-label>
+        <h1 style="font-weight: bold">{{user.email}} {{user.email}}</h1>
+        <h3>{{user.email}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

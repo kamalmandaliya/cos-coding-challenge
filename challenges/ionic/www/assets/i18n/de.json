@@ -1,0 +1,21 @@
+{
+  "bottomTabs": {
+    "main": "Auctions",
+    "services": "Services",
+    "messages": "Messages",
+    "profile": "Profile"
+  },
+  "services": {},
+  "mainTabs": {
+    "auctions": "Auctions"
+  },
+  "backButtonTitle": "Back",
+  "settingsTitle": "Settings",
+  "notificationsTitle": "Notifications",
+  "accountTitle": "Account",
+  "logOut": "Log Out",
+  "myProfile": "My profile",
+  "message": "Message",
+  "messages": "Messages",
+  "settingsNotifications": {}
+}
